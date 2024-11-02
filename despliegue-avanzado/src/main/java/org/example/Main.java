@@ -17,6 +17,7 @@ public class Main {
      * @param num1 numero 1
      * @param num2 numero 2
      * @return devuelve el numero del resultado
+     * @author Natalia Gonzalez Alvarez
      */
     public static int suma(int num1, int num2) {
         return num1 + num2;
@@ -27,6 +28,7 @@ public class Main {
      * @param num1 numero1
      * @param num2 numero2
      * @return devuelve el numero del resultado
+     * @author Natalia Gonzalez Alvarez
      */
     public static int resta(int num1, int num2) {
         return num1 - num2;
@@ -37,6 +39,7 @@ public class Main {
      * @param num1 numero 1
      * @param num2 numero 2
      * @return devuelve el numero del resultado
+     * @author Natalia Gonzalez Alvarez
      */
     public static int multiplicacion(int num1, int num2) {
         return num1 * num2;
@@ -47,6 +50,7 @@ public class Main {
      * @param num1 numero 1
      * @param num2 numero 2
      * @return devuelve el numero del resultado
+     * @author Natalia Gonzalez Alvarez
      */
     public static double division(int num1, int num2) {
         if (num2 == 0) {
