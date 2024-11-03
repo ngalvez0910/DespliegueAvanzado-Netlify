@@ -48,13 +48,11 @@ tasks.register("prepareNetlifyDist") {
         delete(targetDir)
         mkdir(targetDir)
 
-        // Copy Javadoc
         copy {
             from("${buildDir}/docs/javadoc")
             into(targetDir)
         }
 
-        // Copy Jacoco reports
         copy {
             from("${buildDir}/reports/jacoco/test/html")
             into(targetDir.resolve("coverage"))
