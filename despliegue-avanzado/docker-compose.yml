@@ -2,18 +2,16 @@ services:
   calculadora_server:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     container_name: calculadora
     volumes:
-      - documentation:/app/doc
+      - documentation:/app/documentation
       - coverage:/app/coverage
       - tests:/app/tests
 
   nginx_presentation:
     image: ubuntu/nginx:latest
     container_name: nginx_presentation
-    ports:
-      - "8081:80"
     volumes:
       - ./servidores/nginx-presentacion/default:/etc/nginx/sites-available/default
       - ./servidores/nginx-presentacion/index.html:/var/www/html/presentacion/index.html
@@ -26,8 +24,6 @@ services:
   apache_documentation:
     image: ubuntu/apache2:latest
     container_name: apache_documentation
-    ports:
-      - "8082:80"
     volumes:
       - documentation:/var/www/html/
       - ./servidores/apache-documentation/000-default.conf:/etc/apache2/sites-available/000-default.conf
@@ -40,8 +36,6 @@ services:
   nginx_coverage:
     image: ubuntu/nginx:latest
     container_name: nginx_coverage
-    ports:
-      - "8083:80"
     volumes:
       - coverage:/var/www/html/
       - ./servidores/nginx-coverage/default:/etc/nginx/sites-available/default
@@ -54,8 +48,6 @@ services:
   nginx_test:
     image: ubuntu/nginx:latest
     container_name: nginx_test
-    ports:
-      - "8084:80"
     volumes:
       - tests:/var/www/html/
       - ./servidores/nginx-test/default:/etc/nginx/sites-available/default
@@ -90,4 +82,3 @@ volumes:
 
 networks:
   servers:
-    driver: bridge

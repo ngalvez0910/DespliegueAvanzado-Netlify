@@ -12,8 +12,8 @@ FROM eclipse-temurin:21-jre AS run
 WORKDIR /app
 
 COPY --from=build /app/build/libs/*.jar /app/my-app.jar
-COPY --from=build /app/build/docs/javadoc/ /app/files/documentation
-COPY --from=build /app/build/reports/jacoco/test/html/index.html /app/files/coverage
-COPY --from=build /app/build/reports/tests/test/ /app/files/tests
+COPY --from=build /app/build/docs/javadoc/ /app/documentation
+COPY --from=build /app/build/reports/jacoco/test/html/ /app/coverage
+COPY --from=build /app/build/reports/tests/test/ /app/tests
 
 ENTRYPOINT ["java","-jar","/app/my-app.jar"]
