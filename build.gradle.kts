@@ -41,29 +41,3 @@ tasks.jar {
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
-
-tasks.register("prepareNetlifyDist") {
-    doLast {
-        val targetDir = file("${buildDir}/netlify_dist")
-        delete(targetDir)
-        mkdir(targetDir)
-
-        copy {
-            from("${buildDir}/docs/javadoc")
-            into(targetDir)
-        }
-
-        copy {
-            from("${buildDir}/reports/jacoco/test/html")
-            into(targetDir.resolve("coverage"))
-        }
-    }
-}
-
-tasks.named("javadoc").configure {
-    finalizedBy("prepareNetlifyDist")
-}
-
-tasks.named("jacocoTestReport").configure {
-    finalizedBy("prepareNetlifyDist")
-}

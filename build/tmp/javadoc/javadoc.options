@@ -1,7 +1,0 @@
--classpath 'C:\\DespliegueAvanzado\\build\\classes\\java\\main;C:\\DespliegueAvanzado\\build\\resources\\main'
--d 'C:\\DespliegueAvanzado\\build\\docs\\javadoc'
--doctitle 'despliegue-avanzado 1.0-SNAPSHOT API'
--notimestamp 
--quiet 
--windowtitle 'despliegue-avanzado 1.0-SNAPSHOT API'
-'C:\\DespliegueAvanzado\\src\\main\\java\\org\\example\\Main.java'
